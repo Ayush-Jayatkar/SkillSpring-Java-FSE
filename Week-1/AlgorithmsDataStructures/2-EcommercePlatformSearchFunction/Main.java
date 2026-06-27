@@ -20,7 +20,7 @@ public class Main {
         };
 
         // Test Linear Search
-        System.out.println("=== Linear Search ===");
+        System.out.println("Linear Search ");
         Product result1 = LinearSearch.linearSearch(productsForLinear, "Watch");
         if (result1 != null) {
             System.out.println("Found: " + result1.productName + " | Category: " + result1.category);
@@ -29,7 +29,7 @@ public class Main {
         }
 
         // Test Binary Search
-        System.out.println("\n=== Binary Search ===");
+        System.out.println("\nBinary Search  ");
         Product result2 = BinarySearch.binarySearch(productsForBinary, "Watch");
         if (result2 != null) {
             System.out.println("Found: " + result2.productName + " | Category: " + result2.category);
@@ -38,7 +38,7 @@ public class Main {
         }
 
         // Test not found case
-        System.out.println("\n=== Searching for non-existent product ===");
+        System.out.println("\nSearching for non-existent product ");
         Product result3 = LinearSearch.linearSearch(productsForLinear, "Headphones");
         if (result3 != null) {
             System.out.println("Found: " + result3.productName);
