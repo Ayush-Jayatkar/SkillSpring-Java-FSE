@@ -1,0 +1,29 @@
+CREATE TABLE Customers (
+    CustomerID NUMBER PRIMARY KEY,
+    Name VARCHAR2(100),
+    Age NUMBER,
+    Balance NUMBER,
+    IsVIP VARCHAR2(5) DEFAULT 'FALSE'
+);
+
+CREATE TABLE Loans (
+    LoanID NUMBER PRIMARY KEY,
+    CustomerID NUMBER,
+    InterestRate NUMBER,
+    DueDate DATE,
+    FOREIGN KEY (CustomerID) REFERENCES Customers(CustomerID)
+);
+
+INSERT INTO Customers VALUES (1, 'Ayush', 65, 15000, 'FALSE');
+INSERT INTO Customers VALUES (2, 'Rahul', 45, 8000, 'FALSE');
+INSERT INTO Customers VALUES (3, 'Priya', 70, 12000, 'FALSE');
+INSERT INTO Customers VALUES (4, 'Amit', 30, 5000, 'FALSE');
+INSERT INTO Customers VALUES (5, 'Sneha', 62, 20000, 'FALSE');
+
+INSERT INTO Loans VALUES (1, 1, 10.5, SYSDATE + 10);
+INSERT INTO Loans VALUES (2, 2, 9.0, SYSDATE + 45);
+INSERT INTO Loans VALUES (3, 3, 11.0, SYSDATE + 20);
+INSERT INTO Loans VALUES (4, 4, 8.5, SYSDATE + 5);
+INSERT INTO Loans VALUES (5, 5, 12.0, SYSDATE + 25);
+
+COMMIT;
