@@ -28,7 +28,6 @@ public class OrmLearnApplication {
 
         countryService = context.getBean(CountryService.class);
 
-        // Insert sample countries
         Country india = new Country();
         india.setCode("IN");
         india.setName("India");
@@ -40,16 +39,22 @@ public class OrmLearnApplication {
         countryService.addCountry(usa);
 
         testGetAllCountries();
+        System.out.println("\nDifference between JPA, Hibernate and Spring Data JPA");
+System.out.println("JPA : Java Persistence API (Specification)");
+System.out.println("Hibernate : ORM Framework implementing JPA");
+System.out.println("Spring Data JPA : Simplifies JPA by reducing boilerplate code");
     }
 
-    private static void testGetAllCountries() {
+   private static void testGetAllCountries() {
 
-        LOGGER.info("Start");
+    System.out.println("Country Details");
 
-        List<Country> countries = countryService.getAllCountries();
+    List<Country> countries = countryService.getAllCountries();
 
-        LOGGER.info("Countries: {}", countries);
-
-        LOGGER.info("End");
+    for (Country country : countries) {
+        System.out.println("Code : " + country.getCode());
+        System.out.println("Name : " + country.getName());
     }
+
+}
 }
